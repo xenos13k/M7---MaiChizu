@@ -247,7 +247,7 @@ class WebGIS {
         });
 
         if (isOnline) {
-            this.addWmsLayer('http://geoportal.sumbarprov.go.id/geoserver/wms', 'geonode:1300_250_ar_peta_administrasi_sumatera_barat_2025e2b1e1c7578f', 'Peta Administrasi Sumbar');
+            this.addWmsLayer('https://geoportal.sumbarprov.go.id/geoserver/wms', 'geonode:1300_250_ar_peta_administrasi_sumatera_barat_2025e2b1e1c7578f', 'Peta Administrasi Sumbar');
         } else {
             this.addWmsLayer('http://localhost:8080/geoserver/wms', 'wilduntasik:Kecamatan.Kota.Tasikmalaya', 'Kecamatan Kota Tasikmalaya');
         }
@@ -282,12 +282,15 @@ class WebGIS {
         if (isForcedDisconnect) return showError(url);
 
         // Pengecekan koneksi menggunakan fetch (Cek apakah server hidup)
-        try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000);
-            await fetch(url, { method: 'GET', mode: 'no-cors', signal: controller.signal });
-            clearTimeout(timeoutId);
-        } catch (e) { return showError(url); }
+        // Kita lewati pengecekan untuk layer online (https) karena sering terkendala CORS/Mixed Content
+        if (!isOnlineLayer) {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+                await fetch(url, { method: 'GET', mode: 'no-cors', signal: controller.signal });
+                clearTimeout(timeoutId);
+            } catch (e) { return showError(url); }
+        }
 
         const isOnlineLayer = url.includes('http') && !url.includes('localhost');
 
