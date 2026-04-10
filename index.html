@@ -39,14 +39,6 @@
 
 
         <nav>
-            <button id="about-btn" title="Tentang MaiChizu">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                </svg>
-            </button>
             <button id="settings-btn" title="Pengaturan Aplikasi">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
@@ -223,33 +215,27 @@
                         </label>
                     </label>
                 </div>
-            </div>
-        </div>
 
-        <!-- About Modal -->
-        <div id="about-modal" class="modal">
-            <div class="modal-content">
-                <button id="close-about" class="modal-close">&times;</button>
-                <h3>Tentang MaiChizu</h3>
-
-                <div class="input-group" style="padding-top: 1.5rem; margin-top: 1rem;">
-                    <div style="display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.85rem;">
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 8px;">
-                            <span style="color: var(--text-dim);">Pengembang</span>
-                            <span style="font-weight: 600; color: var(--highlight);">M. Wildan Attalah</span>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 8px;">
-                            <span style="color: var(--text-dim);">NIM</span>
-                            <span style="font-weight: 600; color: var(--highlight);">24/544915/SV/25567</span>
-                        </div>
-                        <div
-                            style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 8px;">
-                            <span style="color: var(--text-dim);">Teknologi</span>
-                            <span style="font-weight: 600; color: var(--highlight);">Leaflet, GeoServer, JS</span>
-                        </div>
+                <div class="sidebar-section-divider" style="margin: 1.5rem 0; border-top: 1px solid var(--glass-border);"></div>
+                
+                <h3 style="margin-bottom: 1rem; font-size: 1rem;">Tentang MaiChizu</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.85rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 8px;">
+                        <span style="color: var(--text-dim);">Pengembang</span>
+                        <span style="font-weight: 600; color: var(--highlight);">M. Wildan Attalah</span>
                     </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 8px;">
+                        <span style="color: var(--text-dim);">NIM</span>
+                        <span style="font-weight: 600; color: var(--highlight);">24/544915/SV/25567</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 8px;">
+                        <span style="color: var(--text-dim);">Teknologi</span>
+                        <span style="font-weight: 600; color: var(--highlight);">Leaflet, GeoServer, JS</span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; text-align: center; font-size: 0.7rem; color: var(--text-dim); opacity: 0.5;">
+                    Version: HNDH1-KOLEDA03-1.4
                 </div>
             </div>
         </div>

@@ -44,11 +44,6 @@ class WebGIS {
         if (settingsBtn) settingsBtn.onclick = () => settingsModal.classList.add('active');
         if (closeSettingsBtn) closeSettingsBtn.onclick = () => settingsModal.classList.remove('active');
 
-        const aboutBtn = document.getElementById('about-btn');
-        const aboutModal = document.getElementById('about-modal');
-        const closeAboutBtn = document.getElementById('close-about');
-        if (aboutBtn) aboutBtn.onclick = () => aboutModal.classList.add('active');
-        if (closeAboutBtn) closeAboutBtn.onclick = () => aboutModal.classList.remove('active');
 
 
         // Modal Hubungkan GeoServer
