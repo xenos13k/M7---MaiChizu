@@ -13,8 +13,8 @@ class WebGIS {
         this.highlightLayer = null; // Layer untuk highlight fitur yang dipilih
         this.markers = []; // Array untuk melacak data penanda individu
 
-        this.initEventListeners(); // Inisialisasi tombol dan kontrol UI
         this.reloadProject(false); // Muat proyek lokal sebagai default awal
+        this.initEventListeners(); // Inisialisasi tombol dan kontrol UI
     }
 
     initEventListeners() {
@@ -99,10 +99,6 @@ class WebGIS {
 
         // Set state awal
         mapDiv.classList.add('pan-active');
-
-        // Efek kursor saat dragging
-        this.map.on('mousedown', () => mapDiv.classList.add('grabbing'));
-        this.map.on('mouseup', () => mapDiv.classList.remove('grabbing'));
 
         const opacityInput = document.getElementById('global-opacity');
         const opacityVal = document.getElementById('opacity-val');
@@ -261,8 +257,8 @@ class WebGIS {
      */
     async addWmsLayer(url, layerName, displayName = null) {
         const isForcedDisconnect = document.getElementById('force-disconnect')?.checked;
-        const display = displayName || this.formatLayerName(layerName);
         const isOnlineLayer = url.includes('http') && !url.includes('localhost');
+        const display = displayName || this.formatLayerName(layerName);
 
         const showError = (targetUrl) => {
             const errorModal = document.getElementById('error-modal');
@@ -321,6 +317,14 @@ class WebGIS {
     }
 
     setupMapInteractions() {
+        const mapDiv = document.getElementById('map');
+        
+        // Efek kursor saat dragging
+        if (this.map) {
+            this.map.on('mousedown', () => mapDiv.classList.add('grabbing'));
+            this.map.on('mouseup', () => mapDiv.classList.remove('grabbing'));
+        }
+
         this.map.on('click', (e) => {
             const isForcedDisconnect = document.getElementById('force-disconnect')?.checked;
             const activeMarkerBtn = document.querySelector('.marker-btn.active');
