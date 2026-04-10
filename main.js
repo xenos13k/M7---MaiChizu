@@ -262,6 +262,7 @@ class WebGIS {
     async addWmsLayer(url, layerName, displayName = null) {
         const isForcedDisconnect = document.getElementById('force-disconnect')?.checked;
         const display = displayName || this.formatLayerName(layerName);
+        const isOnlineLayer = url.includes('http') && !url.includes('localhost');
 
         const showError = (targetUrl) => {
             const errorModal = document.getElementById('error-modal');
@@ -291,8 +292,6 @@ class WebGIS {
                 clearTimeout(timeoutId);
             } catch (e) { return showError(url); }
         }
-
-        const isOnlineLayer = url.includes('http') && !url.includes('localhost');
 
         // Konfigurasi Layer WMS Leaflet
         const wmsLayer = L.tileLayer.wms(url, {
